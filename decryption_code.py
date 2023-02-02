@@ -14,6 +14,8 @@ ROWS = 5
 key = [-1, 2, -3, 4] # "Negative numbers mean you start at the bottom and read up a column; positive numbers mean the reverse."
 
 # Convert ciphertext into a cipherlist to split out individual words
+count = 0
+cipher_list = []
 for row in range(ROWS):
     temp_matrix = []
     for col in range(COLS):
@@ -21,7 +23,7 @@ for row in range(ROWS):
         temp_matrix.append(word)
         count += 1
     cipher_list.append(temp_matrix)
-print(cipher_list)
+print('cipher_list: ', cipher_list)
 
 # Create a new list for the translation matrix.
 
@@ -42,11 +44,10 @@ for num in key:
             print(row, col)
             item = cipher_list[row][col]
             temp_list.append(item)
-            print(temp_list)
     else:
-        for row in range(ROWS-1):
+        for row in range(ROWS):
             print(row, col)
             item = cipher_list[row][col]
             temp_list.append(item)
     translation_matrix.append(temp_list)
-
+print('translation_matrix: ', translation_matrix)
